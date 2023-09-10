@@ -65,6 +65,7 @@ const Meme = () => {
         <img
           className="  max-w-full  rounded-md max-lg:w-full "
           src={inputData.imageUrl}
+          alt="img-meme"
         />
 
         <h2 className=" absolute top-2 ">{inputData.topText}</h2>

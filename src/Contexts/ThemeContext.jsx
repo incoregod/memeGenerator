@@ -2,7 +2,9 @@ import { useState, createContext, useEffect } from "react";
 const ThemeContext = createContext();
 
 const ThemeContextProvider = ({ children }) => {
-  const [colorTheme, setColorTheme] = useState(localStorage.getItem("theme"));
+  const [colorTheme, setColorTheme] = useState(() =>
+    localStorage.getItem("theme")
+  );
 
   useEffect(() => {
     if (colorTheme === "light") {
@@ -13,6 +15,7 @@ const ThemeContextProvider = ({ children }) => {
       document.documentElement.classList.add("dark");
     }
   }, [colorTheme]);
+  console.log("Ola");
 
   const setMode = () => {
     setColorTheme((prev) => (prev === "light" ? "dark" : "light"));
